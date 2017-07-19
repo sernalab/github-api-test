@@ -19,17 +19,16 @@
                         <input class="input-sm" type="text" id="username" placeholder="type username...">
                     </div>
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-success">Search GitHub User</button>
+                        <button type="button" class="btn">Search GitHub User</button>
                     </div>
                     <div class="card">
                         <div class="avatar">
-                            <img alt="" src="https://i.imgur.com/iWKad22.jpg">
+                            <img id="avatar_user" alt="avatar_user" src="https://i.imgur.com/iWKad22.jpg">
                         </div>
                         <div class="info">
                             <div class="title">
-                                <a target="_blank" href="http://scripteden.com/">Script Eden</a>
+                                <a target="_blank" id="name_owner">Script Eden</a>
                             </div>
-                            <div id="name">Real Name</div>
                             <div id="location">Location</div>
                             <div id="bio">Bio</div>
                             <div id="repos">
@@ -46,9 +45,35 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $('button').on('click', function(e) {
+    $('button').on('click', function(e) {
 
         e.preventDefault();
+
+        //username
+
+        $.ajax({
+            url: 'https://api.github.com/users/' + username,
+            success: function(userData) {
+                console.log(userData)
+                $('#avatar_user').attr('src', userData.avatar_url)
+                $('#name_owner')
+                    .text(userData.name)
+                    .attr('href', userData.html_url)
+            }
+        })
+
+        //getting location
+        $.ajax({
+            url: 'https://api.github.com/users/' + username,
+            success: function(userData) {
+                console.log(userData)
+                $('#location').attr('src', userData.location)
+                $('#location')
+                    .text(userData.location)
+            }
+        })
+
+        //public repos
 
         var username = $('#username').val()
         var htmlList = ''
@@ -59,17 +84,6 @@
                     htmlList += '<li>' + repo.name + '</li>'
                 })
                 $('#list_repos').html(htmlList)
-            }
-        })
-
-        $.ajax({
-            url: 'https://api.github.com/users/' + username,
-            success: function(userData) {
-                console.log(userData)
-                $('#avatar_user').attr('src', userData.avatar_url)
-                $('#name_owner')
-                    .text(userData.name)
-                    .attr('href', userData.html_url)
             }
         })
 
