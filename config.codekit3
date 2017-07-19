@@ -9,6 +9,14 @@
 	],
 "creatorBuild": "25849",
 "files": {
+	"\/img\/api-test.gif": {
+		"ft": 4194304,
+		"iS": 5289456,
+		"oA": 0,
+		"oAP": "\/img\/api-test.gif",
+		"oF": 0,
+		"opt": 0
+		},
 	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,

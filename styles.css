@@ -51,13 +51,12 @@ h1 {
   display: block;
   position: absolute;
   top: 0;
-  left: 30%;
+  left: 32%;
   margin-top: 30px;
   height: 120px;
   width: 120px; }
 
 .info {
-  font-weight: bold;
   padding-top: 110px; }
   .info .title {
     font-size: 24px;
@@ -65,3 +64,5 @@ h1 {
     .info .title a {
       color: white;
       text-decoration: none; }
+  .info .bold {
+    font-weight: bold; }

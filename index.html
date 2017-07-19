@@ -27,15 +27,19 @@
                         </div>
                         <div class="info">
                             <div class="title">
-                                <a target="_blank" id="name_owner">Script Eden</a>
+                                <a target="_blank" id="name_owner">Name</a>
                             </div>
-                            <div id="location">Location</div>
-                            <div id="bio">Bio</div>
-                            <div id="repos">
-                                <span id="repos">Public Repos</span>
+                            <div class="location">
+                                <p class="bold">Location</p>
+                                <p id="location"></p>
                             </div>
-                            <div id="followers">
-                                <span id="followers">Followers</span>
+                            <div class="repos">
+                                <p class="bold">Public repos</p>
+                                <p id="repos"></p>
+                            </div>
+                            <div class="followers">
+                                <p class="bold">Followers</p>
+                                <p id="followers"></p>
                             </div>
                         </div>
                     </div>
@@ -49,8 +53,10 @@
 
         e.preventDefault();
 
-        //username
+        var username = $('#username').val()
+        var htmlList = ''
 
+        //username
         $.ajax({
             url: 'https://api.github.com/users/' + username,
             success: function(userData) {
@@ -62,28 +68,14 @@
             }
         })
 
-        //getting location
+        //getting location, repos and followers
         $.ajax({
             url: 'https://api.github.com/users/' + username,
             success: function(userData) {
                 console.log(userData)
-                $('#location').attr('src', userData.location)
-                $('#location')
-                    .text(userData.location)
-            }
-        })
-
-        //public repos
-
-        var username = $('#username').val()
-        var htmlList = ''
-        $.ajax({
-            url: 'https://api.github.com/users/' + username + '/repos',
-            success: function(data) {
-                data.forEach(function(repo) {
-                    htmlList += '<li>' + repo.name + '</li>'
-                })
-                $('#list_repos').html(htmlList)
+                $('#location').text(userData.location)
+                $('#repos').text(userData.public_repos)
+                $('#followers').text(userData.followers)
             }
         })
 
