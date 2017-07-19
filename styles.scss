@@ -1,0 +1,91 @@
+$bg-color: #00b9ce;
+$button-color: #11e7ff;
+$details: #01616b;
+$bg-color-hover: #00b0c3;
+
+
+body {
+    background-color: $bg-color;
+}
+
+h1 {
+    color: $details;
+    margin-bottom: 30px;
+}
+
+.col-centered {
+    text-align: center;
+}
+
+.input-sm {
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
+.btn {
+    background-color: $button-color;
+    border: none;
+    border-radius: 5px;
+    color: $details;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    width: 30%;
+
+    &:hover {
+        background-color: rgba($button-color, .5);
+        color: $details;
+    }
+}
+
+.card {
+    max-width: 30%;
+    margin: 0 auto;
+    background-color: $bg-color-hover;
+    border: solid 5px $details;
+    border-radius: .4rem;
+    color: white;
+    font-size: 18px;
+    padding: 5.5rem 2.5rem 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.avatar img {
+    border-radius: 50%;
+    border: solid 5px $details;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    margin-top: 30px;
+    height: 120px;
+    width: 120px;
+}
+
+.info {
+    font-weight: bold;
+    padding-top: 110px;
+    .title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+
+
+
+
+
